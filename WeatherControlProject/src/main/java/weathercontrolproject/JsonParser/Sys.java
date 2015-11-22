@@ -56,3 +56,4 @@ public class Sys
         return "ClassPojo [message = "+message+", sunset = "+sunset+", sunrise = "+sunrise+", country = "+country+"]";
     }
 }
+			

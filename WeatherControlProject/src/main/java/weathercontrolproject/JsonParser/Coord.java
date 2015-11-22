@@ -1,6 +1,5 @@
 package weathercontrolproject.JsonParser;
 
-                 
 public class Coord
 {
     private String lon;
@@ -33,3 +32,4 @@ public class Coord
         return "ClassPojo [lon = "+lon+", lat = "+lat+"]";
     }
 }
+				

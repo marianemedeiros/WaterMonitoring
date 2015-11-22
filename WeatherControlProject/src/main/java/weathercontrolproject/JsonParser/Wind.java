@@ -32,5 +32,5 @@ public class Wind
         return "ClassPojo [speed = "+speed+", deg = "+deg+"]";
     }
 }
-			
+				
 		

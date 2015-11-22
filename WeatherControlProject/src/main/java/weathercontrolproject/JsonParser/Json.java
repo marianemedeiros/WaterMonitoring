@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package weathercontrolproject.JsonParser;
 
-/**
- *
- * @author mariane
- */
-public class Json {
- private String id;
+
+
+public class Json
+{
+    private String id;
 
     private String dt;
 
@@ -145,6 +139,7 @@ public class Json {
     @Override
     public String toString()
     {
-        return "ClassJson [id = "+id+", dt = "+dt+", clouds = "+clouds+", coord = "+coord+", wind = "+wind+", cod = "+cod+", sys = "+sys+", name = "+name+", base = "+base+", weather = "+weather+", main = "+main+"]";
-    }   
+        return "ClassPojo [id = "+id+", dt = "+dt+", clouds = "+clouds+", coord = "+coord+", wind = "+wind+", cod = "+cod+", sys = "+sys+", name = "+name+", base = "+base+", weather = "+weather+", main = "+main+"]";
+    }
 }
+			

@@ -56,3 +56,5 @@ public class Weather
         return "ClassPojo [id = "+id+", icon = "+icon+", description = "+description+", main = "+main+"]";
     }
 }
+			
+			

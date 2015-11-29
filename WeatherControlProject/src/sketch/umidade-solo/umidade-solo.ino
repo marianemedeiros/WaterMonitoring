@@ -1,14 +1,3 @@
-/*********************************
- ***Autor: Leonardo Dalla Porta****
- ***********25/05/2014*************
- *************Atenção**************
- ***O Codigo esta livre para uso,**
- *desde que seja mantida sua fonte* 
- ********e seu autor.**************
- ********Faça um bom uso***********
- ******Att. Equipe UsinaInfo*******
- *********************************/
-
 int estado = 0; // liga/desliga
 
 int umidade1; // umidade do sensor 1
@@ -40,12 +29,10 @@ void loop(){
     if(Serial.available()){
       estado = Serial.read();
         if(estado == 49){
-          Serial.println("LIGADO");
           digitalWrite(13, HIGH);
           delay(1000);
         }
         if(estado == 48){
-          Serial.println("DESLIGADO");
           digitalWrite(13, LOW);
           delay(1000);
         }

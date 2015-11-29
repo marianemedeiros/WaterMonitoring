@@ -2,10 +2,8 @@ package view;
 
 /**
  *
- * @author radames
+ * @author mariane
  */
-
-//import db.DB_Direct;
 import Arduino.AcessaArduino;
 import java.awt.BorderLayout;
 
@@ -156,11 +154,11 @@ public class GUI extends JFrame implements Observer {
                 if (controle) {
                     ligaDesligaIrrigador.setText("Ligado");
                     ligaDesligaIrrigador.setBackground(Color.green);
- //                   acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "1"); // 0 == mudo; 1 == auto
+                    acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "1"); // on
                 } else {
                     ligaDesligaIrrigador.setText("Desligado");
                     ligaDesligaIrrigador.setBackground(Color.red);
- //                   acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "0"); // 0 == mudo; 1 == auto
+                    acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "0"); // off
                 }
             }
         });
@@ -186,7 +184,10 @@ public class GUI extends JFrame implements Observer {
         this.txtFMedia.setText(String.valueOf(media));
         
         int liga = verificaLigaDesliga(media);
-        if(liga == 1) aviso.setVisible(true);
+        if(liga == 1){
+            aviso.setVisible(true);
+            acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "1"); // on
+        }
         
         if(media != 0){
             gravaControle(Integer.valueOf(s[0]), Integer.valueOf(s[1]), Integer.valueOf(s[2]), media, liga);

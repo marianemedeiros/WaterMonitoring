@@ -70,6 +70,7 @@ public class GUI extends JFrame implements Observer {
     JPanel painelSul = new JPanel();
     JPanel painelCentro = new JPanel();
     boolean controle = false;
+    int liga = 0;
     
     public GUI(Json json) throws SQLException {
         date = new Date();
@@ -155,6 +156,7 @@ public class GUI extends JFrame implements Observer {
                     ligaDesligaIrrigador.setText("Ligado");
                     ligaDesligaIrrigador.setBackground(Color.green);
                     acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "1"); // on
+                    liga = 1;
                 } else {
                     ligaDesligaIrrigador.setText("Desligado");
                     ligaDesligaIrrigador.setBackground(Color.red);
@@ -183,8 +185,22 @@ public class GUI extends JFrame implements Observer {
         this.txtFsensor3.setText(s[2]);
         this.txtFMedia.setText(String.valueOf(media));
         
-        int liga = verificaLigaDesliga(media);
         if(liga == 1){
+            if(media != 0){
+                gravaControle(Integer.valueOf(s[0]), Integer.valueOf(s[1]), Integer.valueOf(s[2]), media, liga);
+            }
+        }
+        
+        
+        if(liga == 1 && verificaLigaDesliga(media) == 0){
+            ligaDesligaIrrigador.setText("Desligado");
+            ligaDesligaIrrigador.setBackground(Color.red);
+            acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "0"); // off
+        }
+        
+        if(liga == 0 && verificaLigaDesliga(media) == 1){
+            ligaDesligaIrrigador.setText("Ligado");
+            ligaDesligaIrrigador.setBackground(Color.green);
             aviso.setVisible(true);
             acessaArduino.setDataToArduino(acessaArduino.getSerialPort(), "1"); // on
         }
@@ -192,6 +208,7 @@ public class GUI extends JFrame implements Observer {
         if(media != 0){
             gravaControle(Integer.valueOf(s[0]), Integer.valueOf(s[1]), Integer.valueOf(s[2]), media, liga);
         }
+        
     }
     
     private void gravaControle(int s1, int s2, int s3, float media, int l){

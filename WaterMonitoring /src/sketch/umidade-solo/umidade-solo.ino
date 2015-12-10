@@ -7,7 +7,8 @@
  ********e seu autor.**************
  ********Faça um bom uso***********
  ******Att. Equipe UsinaInfo*******
- *********************************/
+ *********************************
+***** Algoritmo adaptado de Leornado Dala Prota ***/
  
 int umidade1; // umidade do sensor 1
 int umidade2; // umidade do sensor 2
